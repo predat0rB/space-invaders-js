@@ -8,9 +8,11 @@ function init(){
 
 // Creating drawable object. This will be base oject for all drawable objects in the game.
 function Drawable() {
-    this.init = function(x, y)  {
+    this.init = function(x, y, width, height)  {
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.height = height;
     }
     
     this.speed = 0;
@@ -29,7 +31,8 @@ var imageRepo = new function(){
 
     // Defining images.
     this.background = new Image();
-
+    this.spaceship = new Image();
+    this.bullet = new Image();
     // setting image sources
     this.background.src = "./imgages/bg.png";
 }
