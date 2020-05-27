@@ -4,3 +4,14 @@ canvas {
     left: 0px;
     position: absolute;
 }
+
+#background{
+    z-index: -2;
+    
+}
+#main{
+    z-index: -1;
+}
+#ship{
+    z-index: 0;
+}
