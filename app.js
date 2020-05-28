@@ -21,7 +21,8 @@ function Drawable() {
 
     // This is our draw function
     this.draw = function(){
-
+    }
+    this.move = function(){
     }
 }
 
@@ -33,8 +34,30 @@ var imageRepo = new function(){
     this.background = new Image();
     this.spaceship = new Image();
     this.bullet = new Image();
+    
+    // Ensuring all images have loaded before started the game 
+    var numImages = 3;
+    var numLoaded = 0;
+
+    function imageLoaded(){
+        numLoaded++;
+        if(numLoaded === numImages){
+            window.init();
+        }
+    }
+    this.background.onload = function(){
+        imageLoaded();
+    }
+    this.spaceship.onload = function(){
+        imageLoaded();
+    }
+    this.bullet.onload = function(){
+        imageLoaded();
+    }
     // setting image sources
     this.background.src = "./imgages/bg.png";
+    this.spaceship.src = "./imgages/ship.png";
+    this.bullet.src = "./imgages/bullet.png";
 }
 // console.log(imageRepo);
 
@@ -57,6 +80,12 @@ function Background(){
     }
 }
 Background.prototype = new Drawable();
+
+function Pool(maxSize){
+    var size = maxSize;
+    var pool = []
+}
+
 
 
 // This is our game object. Will hold all data for everything in the game.
